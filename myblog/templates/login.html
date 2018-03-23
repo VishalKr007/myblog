@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1">
+    <title>Welcome | MyBlog</title>
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+
+  <body style="padding-top: 100px;">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <!--<span class="icon-bar"></span>-->
+          </button>
+          <a class="navbar-brand" href="{{ url_for('layout') }}"><b>MY BLOG!! (^_^)</b></a>    <!--REMINDER : add blank space in url_for()  href="{{ url_for('static', filename='home.html') }}"-->
+        </div>
+        <!--<div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            {% if not session.logged_in %}
+                <a href="{{ url_for('login') }}" class="btn btn-danger btn-lg active">Login</a>
+            {% else %}
+                <a href="{{ url_for('logout') }}" class="btn btn-danger btn-lg active">Logout</a>
+            {% endif %}
+          </ul>
+        </div>-->
+      </div>
+    </div>
+    {% for message in get_flashed_messages() %}
+       <div class=flash>{{message}}</div>
+    {% endfor %}
+    <div class="jumbotron">
+      {% block jumbotron %}
+         <center>
+            <h1>Login To Continue</h1>
+         </center>
+      {% endblock %}
+    </div>
+    <div id="content">
+      <div class="container-fluid decor_bg" id="login-panel">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h4>LOGIN</h4>
+              </div>
+              <div class="panel-body">
+                {% if error %}<p class=error><strong>Error:</strong>{{ error }} {% endif %}
+                <form action="{{ url_for('login') }}" method=post>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Username" name="username" required="true">
+                  </div><br>
+                  <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" name="password" required="true">
+                  </div><br><br>
+                  <button type="submit" name="submit" class="btn btn-primary">Login</button><br><br>
+                </form></br>
+              </div>
+                <div class="panel-footer">
+                  <p>admin</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <!--  <footer class="foot">
+      {% block footer %}
+      <div class="container">
+        <center>
+          <p>copyright © Vishal Kumar , MyBlog (^_^)</p>
+        </center>
+      </div>
+      {% endblock %}
+    </footer> -->
+    {% include "footer.html" %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+  </body>
+</html>
