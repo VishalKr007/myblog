@@ -1,5 +1,8 @@
 # myblog
+
 MyBlog is a blog Web Application built on python and Flask micro web framework with jinja2 templates engine.
+
+
 
 # Steps to run MyBlog application -
 
@@ -13,8 +16,8 @@ MyBlog is a blog Web Application built on python and Flask micro web framework w
 
 3. Run the MyBlog app using the command:
       
-      set FLASK_APP=myblog
-      flask run
+      >set FLASK_APP=myblog
+      >flask run
  
 4. Now open the browser and enter the following address:
        
