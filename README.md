@@ -14,10 +14,13 @@ MyBlog is a blog Web Application built on python and Flask micro web framework w
 
          flask initdb
 
-3. Run the MyBlog app using the command:
+3. Instructing flask to use the correct application:
       
-      >set FLASK_APP=myblog
-      >flask run
+      set FLASK_APP=myblog
+
+4. now Run the myblog Application:
+
+      flask run
  
 4. Now open the browser and enter the following address:
        
