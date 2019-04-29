@@ -9,9 +9,9 @@ app = Flask(__name__) #creating instances for app
 app.config.from_object(__name__)
 app.config.update(dict(
            DATABASE = os.path.join(app.root_path, 'myblog.db'),
-           SECRET_KEY = 'shekhar007',
-           USERNAME = 'admin',
-           PASSWORD = 'default'
+           SECRET_KEY = ********,
+           USERNAME = *******,
+           PASSWORD = *******
 ))
 app.config.from_envvar('MYBLOG_SETTINGS', silent=True)
 
